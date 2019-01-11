@@ -13,3 +13,12 @@ To do:
   * Resize the terminal window with app resize
 
 ![](ubuntu.png)
+
+Note: `npm install ; npm start` only appears to be happy in node v8 carbon.  Other versions of node are getting:
+
+```
+The module '/Users/russell.sayers/Documents/TestingZone/dabterm/node_modules/node-pty-prebuilt/build/Release/pty.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 64. This version of Node.js requires
+NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
+```
