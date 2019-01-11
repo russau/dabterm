@@ -8,6 +8,8 @@ To do:
 * [node-docker-api](https://www.npmjs.com/package/node-docker-api) to find all the containers, and update the UI when containers stop / killed / start.
 * Switch to a neater framework like react / angularjs.
 * Make the UI more like an app:
- * http://photonkit.com/components/ or https://ant.design/
- * Menus that make sense
- * Resize the terminal window with app resize
+  * http://photonkit.com/components/ or https://ant.design/
+  * Menus that make sense
+  * Resize the terminal window with app resize
+
+![](ubuntu.png)
