@@ -1,0 +1,18 @@
+{
+  "name": "dabterm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "russell.sayers@gmail.com",
+  "devDependencies": {
+    "electron": "^2.0.7",
+    "jquery": "^2.2.2"
+  },
+  "dependencies": {
+    "node-pty-prebuilt": "0.7.3",
+    "xterm": "^3.6.0"
+  }
+}
