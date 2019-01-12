@@ -28,6 +28,11 @@ ptyProc.on('data', function(data) {
 term.on('resize', function(size) {
     ptyProc.resize(
         Math.max(size ? size.cols : term.cols, 1),
-        Math.min(size ? size.rows : term.rows, 1)
+        Math.max(size ? size.rows : term.rows, 1)
     );
 });
+
+window.onresize = () => {
+  // should i debounce this?
+  term.fit();
+};

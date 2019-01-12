@@ -1,82 +1,43 @@
 <html>
 <head>
-	<title>dabterm</title>
-	<link rel="stylesheet" href="node_modules/xterm/lib/xterm.css" />
+  <title>dabterm</title>
+  <link rel="stylesheet" href="node_modules/xterm/lib/xterm.css" />
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="photon/css/photon.min.css">
-	<!-- <script src="photon/menu.js" charset="utf-8"></script> -->
-
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="photon/css/photon.min.css">
+	<link rel="stylesheet" href="app.css">
 </head>
-<body >
-
-	<div class="window">
-		<div class="window-content">
-	    <div class="pane-group">
-	      <div class="pane-sm sidebar">
-					<nav class="nav-group">
-					  <h5 class="nav-group-title">Containers</h5>
-					  <a class="nav-group-item active">
-					    <span class="icon icon-folder"></span>
-					    kafka-1
-					  </a>
-					  <span class="nav-group-item">
-					    <span class="icon icon-folder"></span>
-					    kafka-2
-					  </span>
-					  <span class="nav-group-item">
-					    <span class="icon icon-folder"></span>
-					    kafka-3
-					  </span>
-					  <span class="nav-group-item">
-					    <span class="icon icon-folder"></span>
-					    base
-					  </span>
-					  <span class="nav-group-item">
-					    <span class="icon icon-folder"></span>
-					    ksql
-					  </span>
-					  <span class="nav-group-item">
-					    <span class="icon icon-folder"></span>
-					    control-center
-					  </span>
-					</nav>
-
-				</div>
-	      <div class="pane">
-					<div class="tab-group">
-						<div class="tab-item active">
-							<span class="icon icon-cancel icon-close-tab"></span>
-							local
-						</div>
-						<div class="tab-item">
-							<span class="icon icon-cancel icon-close-tab"></span>
-							base
-						</div>
-						<div class="tab-item">
-							<span class="icon icon-cancel icon-close-tab"></span>
-							kafka-1
-						</div>
-						<div class="tab-item tab-item-fixed">
-							<span class="icon icon-plus"></span>
-						</div>
-					</div>
-					<div class="pane" id="term"></div>
-				</div>
-	    </div>
-	  </div>
+<body>
 
 
+  <div class="window">
+		<div class="tab-group">
+			<div class="tab-item active">
+				<span class="icon icon-cancel icon-close-tab"></span>
+				local
+			</div>
+			<div class="tab-item">
+				<span class="icon icon-cancel icon-close-tab"></span>
+				base
+			</div>
+			<div class="tab-item">
+				<span class="icon icon-cancel icon-close-tab"></span>
+				kafka-1
+			</div>
+			<div class="tab-item tab-item-fixed">
+				<span class="icon icon-plus"></span>
+			</div>
+		</div>
+    <div class="window-content">
+			<div class="pane" id="term"></div>
+    </div>
+  </div>
 
-	</div>
+  <!-- jQuery -->
+  <script>window.$ = window.jQuery = require('jquery');</script>
+  <script src="menu.js" charset="utf-8"></script>
+  <script src="app.js"></script>
 
-
-
-
-	<!-- jQuery -->
-	<script>window.$ = window.jQuery = require('jquery');</script>
-
-	<script src="app.js"></script>
 
 </body>
 </html>
