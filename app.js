@@ -1,4 +1,5 @@
 const Terminal = require('xterm').Terminal;
+const _debounce = require('lodash.debounce');
 const fit = require('xterm/lib/addons/fit/fit');
 Terminal.applyAddon(fit);
 
@@ -32,7 +33,10 @@ term.on('resize', function(size) {
     );
 });
 
+fitDebounced = _debounce(() => {
+    term.fit();
+}, 17);
+
 window.onresize = () => {
-  // should i debounce this?
-  term.fit();
+    fitDebounced();
 };
