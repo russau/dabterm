@@ -4,11 +4,13 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "postinstall": "electron-rebuild"
   },
   "author": "russell.sayers@gmail.com",
   "devDependencies": {
     "electron": "^2.0.7",
+    "electron-rebuild": "^1.8.2",
     "jquery": "^2.2.2"
   },
   "dependencies": {
