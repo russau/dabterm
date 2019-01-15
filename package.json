@@ -16,6 +16,7 @@
   "dependencies": {
     "docker-events": "0.0.2",
     "dockerode": "^2.5.8",
+    "electron-photon": "^1.1.6",
     "lodash.debounce": "^4.0.8",
     "node-pty-prebuilt": "0.7.3",
     "xterm": "^3.6.0"

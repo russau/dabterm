@@ -1,3 +1,6 @@
+const Photon = require('electron-photon');
+
+
 const Terminal = require('xterm').Terminal;
 const _debounce = require('lodash.debounce');
 const fit = require('xterm/lib/addons/fit/fit');

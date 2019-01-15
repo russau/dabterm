@@ -4,35 +4,53 @@
   <link rel="stylesheet" href="node_modules/xterm/lib/xterm.css" />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="photon/css/photon.min.css">
 	<link rel="stylesheet" href="app.css">
 </head>
 <body>
+	<ph-window data-vibrancy="menu">
+		<tool-bar type="header">
+			<h1 class="title" style="-webkit-app-region: drag;">Connect to container</h1>
+			<div class="toolbar-actions" style="text-align: center;">
+				<!-- probably don't want a button group here, there's no "active" button  -->
+				<btn-group  type="absolute">
+					<button class="btn btn-default">	zk-1 </button>
+					<button class="btn btn-default" >  zk-2  </button>
+					<button class="btn btn-default" >  zk-3  </button>
+					<button class="btn btn-default" >  kafka-1  </button>
+					<button class="btn btn-default" >  kafka-2  </button>
+					<button class="btn btn-default" >  kafka-3  </button>
+					<button class="btn btn-default" >  schema-registry  </button>
+					<button class="btn btn-default" >  connect  </button>
+					<button class="btn btn-default" >  rest-proxy  </button>
+					<button class="btn btn-default" >  ksql-server  </button>
+					<button class="btn btn-default" >  ksql-cli  </button>
+					<button class="btn btn-default" >  control-center  </button>
+					<button class="btn btn-default" >  base  </button>
+				</btn-group>
 
-
-  <div class="window">
-		<div class="tab-group">
-			<div class="tab-item active">
-				<span class="icon icon-cancel icon-close-tab"></span>
+				<button class="btn btn-default pull-right">
+					<span class="icon icon-clipboard"></span>
+				</button>
+			</div>
+		</tool-bar>
+		<tab-group>
+			<tab-item>
+				<button action="close"></button>
 				local
-			</div>
-			<div class="tab-item">
-				<span class="icon icon-cancel icon-close-tab"></span>
+			</tab-item>
+			<tab-item>
+				<button action="close"></button>
 				base
-			</div>
-			<div class="tab-item">
-				<span class="icon icon-cancel icon-close-tab"></span>
+			</tab-item>
+			<tab-item>
+				<button action="close"></button>
 				kafka-1
-			</div>
-			<div class="tab-item tab-item-fixed">
-				<span class="icon icon-plus"></span>
-			</div>
-		</div>
-    <div class="window-content">
+			</tab-item>
+		</tab-group>
+		<window-content>
 			<div class="pane" id="term"></div>
-    </div>
-  </div>
-
+		</window-content>
+	</ph-window>
   <!-- jQuery -->
   <script>window.$ = window.jQuery = require('jquery');</script>
   <script src="menu.js" charset="utf-8"></script>
