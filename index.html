@@ -33,23 +33,14 @@
 				</button>
 			</div>
 		</tool-bar>
-		<tab-group>
+		<tab-group  id="tab-group">
 			<tab-item>
-				<button action="close"></button>
 				local
 			</tab-item>
-			<tab-item>
-				<button action="close"></button>
-				base
-			</tab-item>
-			<tab-item>
-				<button action="close"></button>
-				kafka-1
-			</tab-item>
+			<tab-item style="display: none;" type="fixed" action="add"></tab-item>
 		</tab-group>
-		<window-content>
-			<div class="pane" id="term"></div>
-		</window-content>
+		<div class="pane" id="term"></div>
+
 	</ph-window>
   <!-- jQuery -->
   <script>window.$ = window.jQuery = require('jquery');</script>
