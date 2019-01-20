@@ -15,8 +15,9 @@ window.addEventListener("load", function() {
     fontSize: 16
   });
 
-  term.open(document.getElementById('term'));
+  term.open(document.getElementById('term'), true);
   term.fit();
+  term.focus();
 
   const ptyProc = pty.spawn('/bin/bash', [], {
       cols: term.cols,
@@ -45,5 +46,45 @@ window.addEventListener("load", function() {
   window.onresize = () => {
       fitDebounced();
   };
+
+  $('.btn').on('click', function() {
+    const myNewTab = document.getElementsByTagName("tab-group")[0].addTab({
+      position: "last", // "last" or "first"
+      closeBtn: true, // Wether the tab can be closed using a button within it
+      isActive: true, // Wether the tab item will be the active one
+      animated: true, // Wether an animation will be shown when adding the tab item
+      content: document.createTextNode($(this).text()) // Node or string
+    });
+  });
+
+  var Docker = require('dockerode');
+  var DockerEvents = require('docker-events');
+  var stream = require('stream');
+
+  var docker = new Docker({
+    socketPath: '/var/run/docker.sock'
+  });
+
+  docker.listContainers(function (err, containers) {
+    containers.forEach(function (containerInfo) {
+      var name = containerInfo.Names[0];
+      $('<button/>').addClass("btn btn-default").text(name).appendTo('btn-group');
+    });
+  });
+
+  var emitter = new DockerEvents({
+    docker: docker,
+  });
+
+  emitter.start();
+
+  var dockerEvent = function (message) {
+    console.log(`${message.status} ${message.Actor.Attributes.name}`);
+  };
+
+  emitter.on("start", dockerEvent)
+         .on("stop", dockerEvent)
+         .on("die", dockerEvent)
+         .on("destroy", dockerEvent);
 
 });
