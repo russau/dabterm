@@ -7,7 +7,7 @@ const pty = require('node-pty-prebuilt');
 var Docker = require('dockerode');
 var DockerEvents = require('docker-events');
 
-function addTerminal(element, exec) {
+function addTerminal(element, exec, params) {
   const term = new Terminal({
     fontFamily: 'mono, courier-new, courier, monospace',
     fontSize: 16
@@ -16,9 +16,10 @@ function addTerminal(element, exec) {
   term.fit();
   term.focus();
 
-  const ptyProc = pty.spawn(exec, [], {
+  const ptyProc = pty.spawn(exec, params, {
       cols: term.cols,
-      rows: term.rows
+      rows: term.rows,
+      env: process.env
   });
 
   term.on('data', function(data) {
@@ -51,7 +52,7 @@ window.addEventListener("load", function() {
   var pane = $('<div/>').addClass("pane")
           .appendTo('ph-window');
   var newTerm = $('<div/>').addClass("terminal").appendTo(pane);
-  addTerminal(newTerm.get(0), '/bin/bash');
+  addTerminal(newTerm.get(0), '/bin/bash', ['--login']);
 
   var addTab = function() {
     var tab = $(this).text();
@@ -67,7 +68,7 @@ window.addEventListener("load", function() {
     var pane = $('<div/>').addClass("pane")
             .appendTo('ph-window');
     var newTerm = $('<div/>').addClass("terminal").appendTo(pane);
-    addTerminal(newTerm.get(0), '/bin/bash');
+    addTerminal(newTerm.get(0), 'docker', [ "exec", "-it", tab, "bash"]);
   };
   const tabGroup = document.getElementsByTagName("tab-group")[0];
   tabGroup.addEventListener("tabActivate", function(event) {
